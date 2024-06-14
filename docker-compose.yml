@@ -3,10 +3,14 @@ version: "3.8"
 services:
   expressapp:
     image: swikrititripathi/expressapp
+    ports:
+      - "8080:8080"
     container_name: express_app
-    
+
   watchtower:
     image: containrrr/watchtower
+    ports:
+      - 8080
     environment:
       -  WATCHTOWER_POLL_INTERVAL=60 # Poll every 60 seconds
     volumes:
